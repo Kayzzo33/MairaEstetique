@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Maira Style Esthétique | Lash Designer</title>
+    <meta name="description" content="Je révèle ta beauté naturelle, sans exagération. Spécialiste en extensions de cils et soins du regard." />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Dancing+Script:wght@400;700&family=Montserrat:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: '#D4AF37', // Gold
+              secondary: '#FF69B4', // Hot Pink
+              'pink-light': '#FFF0F5',
+              'dark': '#1A1A1A',
+              'glass': 'rgba(255, 255, 255, 0.7)',
+            },
+            fontFamily: {
+              serif: ['"Cormorant Garamond"', 'serif'],
+              sans: ['"Montserrat"', 'sans-serif'],
+              script: ['"Dancing Script"', 'cursive'],
+            },
+            backgroundImage: {
+              'hero-gradient': 'linear-gradient(to right bottom, #FFF0F5, #FFFFFF)',
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      body {
+        cursor: none; /* Hide default cursor for custom cursor */
+      }
+      /* Custom Scrollbar */
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #FFF0F5;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #FF69B4;
+        border-radius: 4px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #D4AF37;
+      }
+      .cursor-dot,
+      .cursor-outline {
+        position: fixed;
+        top: 0;
+        left: 0;
+        transform: translate(-50%, -50%);
+        border-radius: 50%;
+        z-index: 9999;
+        pointer-events: none;
+      }
+      .cursor-dot {
+        width: 8px;
+        height: 8px;
+        background-color: #D4AF37;
+      }
+      .cursor-outline {
+        width: 40px;
+        height: 40px;
+        border: 1px solid #D4AF37;
+        transition: width 0.2s, height 0.2s, background-color 0.2s;
+      }
+      body:hover .cursor-outline.hovered {
+        width: 60px;
+        height: 60px;
+        background-color: rgba(212, 175, 55, 0.1);
+        border-color: #FF69B4;
+      }
+      /* Lenis or smooth scroll simulation */
+      html.lenis {
+        height: auto;
+      }
+      .lenis.lenis-smooth {
+        scroll-behavior: auto;
+      }
+      .lenis.lenis-smooth [data-lenis-prevent] {
+        overscroll-behavior: contain;
+      }
+      .lenis.lenis-stopped {
+        overflow: hidden;
+      }
+      .lenis.lenis-scrolling iframe {
+        pointer-events: none;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "lucide-react": "https://esm.sh/lucide-react@^0.559.0",
+    "react/": "https://esm.sh/react@^19.2.1/",
+    "react": "https://esm.sh/react@^19.2.1",
+    "gsap/": "https://esm.sh/gsap@^3.14.1/",
+    "gsap": "https://esm.sh/gsap@^3.14.1"
+  }
+}
+</script>
+</head>
+  <body class="bg-pink-light/30 text-dark font-sans overflow-x-hidden selection:bg-secondary selection:text-white">
+    <div id="root"></div>
+  </body>
+</html>
