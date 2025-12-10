@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useLayoutEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { SERVICES } from '../../constants';
@@ -10,38 +10,51 @@ interface AllServicesProps {
 }
 
 const AllServices: React.FC<AllServicesProps> = ({ openModal }) => {
-  const sectionRef = useRef<HTMLElement>(null);
-  const triggerRef = useRef<HTMLDivElement>(null);
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const trackRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    const pin = gsap.fromTo(
-      sectionRef.current,
-      {
-        translateX: 0,
-      },
-      {
-        translateX: `-${100 - 100 / (SERVICES.length + 1)}vw`, // Adjust scroll distance based on content
-        ease: 'none',
-        duration: 1,
-        scrollTrigger: {
-          trigger: triggerRef.current,
-          start: 'top top',
-          end: '2000 top',
-          scrub: 0.6,
-          pin: true,
-        },
-      }
-    );
+  useLayoutEffect(() => {
+    const section = sectionRef.current;
+    const track = trackRef.current;
 
-    return () => {
-      pin.kill();
-    };
+    if (!section || !track) return;
+
+    // Use context to clean up easily
+    const ctx = gsap.context(() => {
+        const getScrollAmount = () => {
+            // Calculate how much we need to move left
+            // (Total width of track) - (Viewport width)
+            let amount = track.scrollWidth - window.innerWidth;
+            return -amount;
+        };
+
+        const tween = gsap.to(track, {
+            x: getScrollAmount,
+            ease: "none",
+        });
+
+        ScrollTrigger.create({
+            trigger: section,
+            start: "top top",
+            end: () => `+=${track.scrollWidth - window.innerWidth}`,
+            pin: true, // This locks the container in place
+            animation: tween,
+            scrub: 1, // Smooth scrubbing
+            invalidateOnRefresh: true, // Recalculate on resize
+            anticipatePin: 1, // Helps prevent jitter
+        });
+    }, sectionRef);
+
+    return () => ctx.revert();
   }, []);
 
   return (
-    <section id="all-services" className="overflow-hidden bg-dark text-white relative">
-      <div ref={triggerRef}>
-        <div ref={sectionRef as any} className="h-screen flex items-center px-12 md:px-24 w-[300vw] lg:w-[200vw]">
+    <section id="all-services" ref={sectionRef} className="bg-dark text-white relative h-screen w-full overflow-hidden">
+      {/* Wrapper ensures vertical centering if needed, but here we fill screen */}
+      <div className="w-full h-full flex items-center overflow-hidden">
+        
+        {/* Track that moves horizontally */}
+        <div ref={trackRef} className="flex items-center px-12 md:px-24 h-full w-max">
           
           {/* Title Card */}
           <div className="w-[80vw] md:w-[40vw] flex-shrink-0 pr-12 md:pr-24">
@@ -55,7 +68,7 @@ const AllServices: React.FC<AllServicesProps> = ({ openModal }) => {
              </p>
              <div className="mt-8 flex items-center space-x-4">
                <div className="w-16 h-[1px] bg-secondary" />
-               <span className="text-sm uppercase tracking-wider text-gray-500">Scroll to explore</span>
+               <span className="text-sm uppercase tracking-wider text-gray-500">Scroll pour explorer</span>
              </div>
           </div>
 
@@ -95,6 +108,8 @@ const AllServices: React.FC<AllServicesProps> = ({ openModal }) => {
             </div>
           ))}
 
+          {/* Spacer at the end for comfortable scrolling */}
+          <div className="w-24 flex-shrink-0" />
         </div>
       </div>
     </section>

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Service } from '../../types';
-import { SERVICES } from '../../constants';
+import { SERVICES, IMAGES } from '../../constants';
 import { ArrowUpRight } from 'lucide-react';
 
 interface FeaturedServicesProps {
@@ -24,7 +24,7 @@ const FeaturedServices: React.FC<FeaturedServicesProps> = ({ openModal }) => {
           </a>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           {/* Left Cards */}
           <div className="lg:col-span-5 space-y-6">
             {featured.map((service, index) => (
@@ -47,12 +47,12 @@ const FeaturedServices: React.FC<FeaturedServicesProps> = ({ openModal }) => {
             ))}
           </div>
 
-          {/* Right Large Image */}
-          <div className="lg:col-span-7 h-[500px] lg:h-auto relative rounded-3xl overflow-hidden shadow-2xl group">
+          {/* Right Large Image - Fixed max height to align better */}
+          <div className="lg:col-span-7 h-[500px] lg:h-auto lg:max-h-[650px] relative rounded-3xl overflow-hidden shadow-2xl group">
              <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors z-10" />
-             {/* Client Image: Procedures Collage */}
+             {/* Client Image: Procedures Collage (Cloudinary) */}
              <img 
-              src="https://drive.google.com/uc?export=view&id=1qM35WBbw_PzP8ux6duzKvyzg6t1s-Ayi" 
+              src={IMAGES.collage} 
               alt="Maira Olliver Prestations" 
               className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
              />

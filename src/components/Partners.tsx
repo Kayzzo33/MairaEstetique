@@ -1,42 +1,43 @@
-import React, { useEffect, useRef } from 'react';
-import { PARTNERS } from '../../constants';
-import { gsap } from 'gsap';
+import React from 'react';
+import { GradientHeading } from './ui/gradient-heading';
+import { PARTNER_LOGOS } from '../../constants';
 
 const Partners: React.FC = () => {
-  const gridRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    // Random fade animation
-    const logos = gridRef.current?.children;
-    if (!logos) return;
-
-    const interval = setInterval(() => {
-      const randomIndex = Math.floor(Math.random() * logos.length);
-      const logo = logos[randomIndex];
-
-      gsap.to(logo, { opacity: 0.3, duration: 1, yoyo: true, repeat: 1 });
-    }, 2000);
-
-    return () => clearInterval(interval);
-  }, []);
-
   return (
-    <section className="py-20 bg-white">
+    <section className="py-24 bg-white overflow-hidden">
       <div className="container mx-auto px-6 text-center">
-        <h3 className="text-2xl font-serif font-bold text-dark mb-12">Nos Partenaires de Confiance</h3>
+        <div className="mb-16">
+           <GradientHeading variant="pink" size="md">Nos Partenaires de Confiance</GradientHeading>
+           <p className="text-gray-500 mt-2">Nous utilisons uniquement les meilleurs produits du marché</p>
+        </div>
         
-        <div ref={gridRef} className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8 items-center justify-items-center opacity-80">
-          {PARTNERS.map((partner, index) => (
-            <div 
-              key={index}
-              className="w-full h-20 flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300 hover:scale-110"
-            >
-              {/* Using text placeholder for logos as direct image links are not available, styled to look like logos */}
-              <span className="text-xl md:text-2xl font-bold font-serif text-gray-400 border border-gray-200 px-6 py-2 rounded-lg block w-full">
-                {partner}
-              </span>
+        <div className="flex flex-wrap justify-center items-center gap-12 md:gap-24 opacity-80">
+            {/* Logo 1: Cherry Lash */}
+            <div className="w-40 md:w-56 h-auto transition-transform hover:scale-110 duration-300">
+               <img 
+                 src={PARTNER_LOGOS.cherry} 
+                 alt="Cherry Lash Partner" 
+                 className="w-full h-auto object-contain mix-blend-multiply"
+               />
             </div>
-          ))}
+
+             {/* Logo 2: Nagaraku */}
+            <div className="w-40 md:w-56 h-auto transition-transform hover:scale-110 duration-300">
+               <img 
+                 src={PARTNER_LOGOS.nagaraku} 
+                 alt="Nagaraku Partner" 
+                 className="w-full h-auto object-contain mix-blend-multiply"
+               />
+            </div>
+
+             {/* Logo 3: DeceMars */}
+            <div className="w-40 md:w-56 h-auto transition-transform hover:scale-110 duration-300">
+               <img 
+                 src={PARTNER_LOGOS.decemars} 
+                 alt="DeceMars Partner" 
+                 className="w-full h-auto object-contain mix-blend-multiply"
+               />
+            </div>
         </div>
       </div>
     </section>

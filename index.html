@@ -11,6 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Dancing+Script:wght@400;700&family=Montserrat:wght@200;300;400;500;600&display=swap" rel="stylesheet">
     <script>
       tailwind.config = {
+        darkMode: ["class"],
         theme: {
           extend: {
             colors: {
@@ -19,6 +20,7 @@
               'pink-light': '#FFF0F5',
               'dark': '#1A1A1A',
               'glass': 'rgba(255, 255, 255, 0.7)',
+              accent: '#FF69B4',
             },
             fontFamily: {
               serif: ['"Cormorant Garamond"', 'serif'],
@@ -27,6 +29,9 @@
             },
             backgroundImage: {
               'hero-gradient': 'linear-gradient(to right bottom, #FFF0F5, #FFFFFF)',
+            },
+            animation: {
+              'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
             }
           }
         }
@@ -74,34 +79,25 @@
         background-color: rgba(212, 175, 55, 0.1);
         border-color: #FF69B4;
       }
-      /* Lenis or smooth scroll simulation */
-      html.lenis {
-        height: auto;
-      }
-      .lenis.lenis-smooth {
-        scroll-behavior: auto;
-      }
-      .lenis.lenis-smooth [data-lenis-prevent] {
-        overscroll-behavior: contain;
-      }
-      .lenis.lenis-stopped {
-        overflow: hidden;
-      }
-      .lenis.lenis-scrolling iframe {
-        pointer-events: none;
-      }
     </style>
   <script type="importmap">
 {
   "imports": {
-    "lucide-react": "https://esm.sh/lucide-react@^0.559.0",
+    "react": "https://esm.sh/react@18.2.0",
+    "react-dom/client": "https://esm.sh/react-dom@18.2.0/client",
+    "react-dom": "https://esm.sh/react-dom@18.2.0",
+    "react/jsx-runtime": "https://esm.sh/react@18.2.0/jsx-runtime",
+    "gsap": "https://esm.sh/gsap@3.12.5",
+    "gsap/ScrollTrigger": "https://esm.sh/gsap@3.12.5/ScrollTrigger",
+    "lucide-react": "https://esm.sh/lucide-react@0.344.0",
+    "framer-motion": "https://esm.sh/framer-motion@11.0.8?external=react,react-dom",
+    "clsx": "https://esm.sh/clsx@2.1.0",
+    "tailwind-merge": "https://esm.sh/tailwind-merge@2.2.1",
+    "@radix-ui/react-slot": "https://esm.sh/@radix-ui/react-slot@1.0.2?external=react,react-dom",
+    "class-variance-authority": "https://esm.sh/class-variance-authority@0.7.0",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.1/",
     "react/": "https://esm.sh/react@^19.2.1/",
-    "react": "https://esm.sh/react@^19.2.1",
-    "react-dom/client": "https://esm.sh/react-dom@^19.2.1/client",
-    "react-dom": "https://esm.sh/react-dom@^19.2.1",
-    "gsap/": "https://esm.sh/gsap@^3.14.1/",
-    "gsap": "https://esm.sh/gsap@^3.14.1",
-    "react-dom/": "https://esm.sh/react-dom@^19.2.1/"
+    "gsap/": "https://esm.sh/gsap@^3.14.1/"
   }
 }
 </script>

@@ -1,6 +1,6 @@
 import React from 'react';
 import { MapPin } from 'lucide-react';
-import { WHATSAPP_NUMBER } from '../../constants';
+import { WHATSAPP_NUMBER, IMAGES } from '../../constants';
 
 const Spaces: React.FC = () => {
   return (
@@ -18,24 +18,24 @@ const Spaces: React.FC = () => {
           <div className="grid grid-cols-2 gap-4">
             <div className="space-y-4 translate-y-8">
               <img 
-                src="https://images.unsplash.com/photo-1521590832169-7dad1a9b708c?q=80&w=800&auto=format&fit=crop" 
+                src={IMAGES.salon1} 
                 alt="Salon detail 1" 
                 className="w-full h-64 object-cover rounded-2xl shadow-lg hover:scale-[1.02] transition-transform duration-500"
               />
               <img 
-                src="https://images.unsplash.com/photo-1632765854612-9b02b6ec2b3c?q=80&w=800&auto=format&fit=crop" 
+                src={IMAGES.salon2} 
                 alt="Salon detail 2" 
                 className="w-full h-48 object-cover rounded-2xl shadow-lg hover:scale-[1.02] transition-transform duration-500"
               />
             </div>
             <div className="space-y-4">
               <img 
-                src="https://images.unsplash.com/photo-1560066984-138dadb4c035?q=80&w=800&auto=format&fit=crop" 
+                src={IMAGES.salon3} 
                 alt="Salon detail 3" 
                 className="w-full h-48 object-cover rounded-2xl shadow-lg hover:scale-[1.02] transition-transform duration-500"
               />
               <img 
-                src="https://images.unsplash.com/photo-1504198458649-3128b932f49e?q=80&w=800&auto=format&fit=crop" 
+                src={IMAGES.salon4} 
                 alt="Salon detail 4" 
                 className="w-full h-64 object-cover rounded-2xl shadow-lg hover:scale-[1.02] transition-transform duration-500"
               />

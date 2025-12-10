@@ -1,5 +1,6 @@
 import React from 'react';
 import { Star } from 'lucide-react';
+import { IMAGES } from '../../constants';
 
 const About: React.FC = () => {
   return (
@@ -16,11 +17,11 @@ const About: React.FC = () => {
           <div className="flex flex-col md:flex-row items-center gap-12">
             <div className="w-full md:w-1/2 relative group">
               <div className="absolute top-4 -left-4 w-full h-full border-2 border-secondary/30 rounded-2xl group-hover:top-2 group-hover:-left-2 transition-all duration-300" />
-              {/* Client Image: Professional 1 */}
+              {/* Client Image: Professional 1 - Aligned Top to show face */}
               <img 
-                src="https://drive.google.com/uc?export=view&id=1Kf_A8YQya8HqIf8WjlPL7W4L3PdfLQ6n" 
+                src={IMAGES.about1} 
                 alt="Maira Olliver Portrait" 
-                className="w-full h-[500px] object-cover rounded-2xl shadow-xl relative z-10"
+                className="w-full h-[500px] object-cover object-top rounded-2xl shadow-xl relative z-10"
               />
             </div>
             <div className="w-full md:w-1/2 md:pl-8">
@@ -38,13 +39,17 @@ const About: React.FC = () => {
 
           {/* Block 2 */}
           <div className="flex flex-col md:flex-row-reverse items-center gap-12">
-            <div className="w-full md:w-1/2 relative group">
-              <div className="absolute -bottom-4 -right-4 w-full h-full bg-secondary/10 rounded-2xl -z-10 group-hover:bg-secondary/20 transition-colors" />
-              {/* Client Image: Professional 2 (Working) */}
+            <div className="w-full md:w-1/2 relative group grid grid-cols-2 gap-4">
+              {/* Client Image: Professional 2 & 3 */}
               <img 
-                src="https://drive.google.com/uc?export=view&id=1zaN30GBZlezg2CaCbRO1fe-wvrx1AhgX" 
+                src={IMAGES.about2} 
                 alt="Maira Olliver Working" 
-                className="w-full h-[500px] object-cover rounded-2xl shadow-xl"
+                className="w-full h-[400px] object-cover rounded-2xl shadow-xl translate-y-8"
+              />
+               <img 
+                src={IMAGES.about3} 
+                alt="Maira Olliver Studio" 
+                className="w-full h-[400px] object-cover rounded-2xl shadow-xl"
               />
             </div>
             <div className="w-full md:w-1/2 md:pr-8 text-right md:text-left">

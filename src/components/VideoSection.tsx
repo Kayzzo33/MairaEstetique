@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { VIDEOS } from '../../constants';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -27,7 +28,7 @@ const VideoSection: React.FC = () => {
 
   return (
     <section ref={containerRef} className="relative h-[60vh] md:h-[80vh] w-full overflow-hidden bg-black flex items-center justify-center">
-      {/* Client Video: Lash Video 1 - Rotated and Muted */}
+      {/* Client Video: Lash Video 1 - Rotated and Muted (Cloudinary) */}
       <video
         ref={videoRef}
         autoPlay
@@ -36,8 +37,7 @@ const VideoSection: React.FC = () => {
         playsInline
         className="absolute inset-0 w-full h-full object-cover opacity-80 transform rotate-90 scale-150 md:rotate-0 md:scale-100" 
       >
-        {/* Using direct download link for streaming */}
-        <source src="https://drive.google.com/uc?export=download&id=1FnCfGf1sN2c0F48sC7P0-59O4bvhNcAV" type="video/mp4" />
+        <source src={VIDEOS.lashProcess} type="video/mp4" />
         Your browser does not support the video tag.
       </video>
 
