@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ArrowRight, Sparkles } from 'lucide-react';
-import { WHATSAPP_NUMBER } from '../constants';
+import { WHATSAPP_NUMBER } from '../../constants';
 
 const Hero: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -113,11 +113,12 @@ const Hero: React.FC = () => {
            </svg>
         </div>
         
+        {/* Client Image: Hero Woman */}
         <img 
           ref={imageInnerRef}
-          src="https://images.unsplash.com/photo-1596704017254-9b121068fb31?q=80&w=2000&auto=format&fit=crop" 
-          alt="Beauty Portrait" 
-          className="w-full h-[120%] object-cover object-center"
+          src="https://drive.google.com/uc?export=view&id=1AtzACGnWe-SJQf67tLVIN14Ybpt-4tNi" 
+          alt="Maira Olliver Hero" 
+          className="w-full h-[120%] object-cover object-top"
         />
         
         {/* Floating Badge */}

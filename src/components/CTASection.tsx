@@ -1,6 +1,6 @@
 import React from 'react';
 import { Instagram, MessageCircle } from 'lucide-react';
-import { WHATSAPP_NUMBER } from '../constants';
+import { WHATSAPP_NUMBER } from '../../constants';
 
 const CTASection: React.FC = () => {
   return (

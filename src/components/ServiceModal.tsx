@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 import { gsap } from 'gsap';
-import { Service } from '../types';
+import { Service } from '../../types';
 import { X, Check, Clock, Calendar } from 'lucide-react';
-import { WHATSAPP_NUMBER } from '../constants';
+import { WHATSAPP_NUMBER } from '../../constants';
 
 interface ServiceModalProps {
   service: Service;

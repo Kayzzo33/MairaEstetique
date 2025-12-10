@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import { PARTNERS } from '../constants';
+import { PARTNERS } from '../../constants';
 import { gsap } from 'gsap';
 
 const Partners: React.FC = () => {

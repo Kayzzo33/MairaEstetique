@@ -16,9 +16,10 @@ const About: React.FC = () => {
           <div className="flex flex-col md:flex-row items-center gap-12">
             <div className="w-full md:w-1/2 relative group">
               <div className="absolute top-4 -left-4 w-full h-full border-2 border-secondary/30 rounded-2xl group-hover:top-2 group-hover:-left-2 transition-all duration-300" />
+              {/* Client Image: Professional 1 */}
               <img 
-                src="https://images.unsplash.com/photo-1519699047748-40baea614fda?q=80&w=800&auto=format&fit=crop" 
-                alt="Professional Portrait" 
+                src="https://drive.google.com/uc?export=view&id=1Kf_A8YQya8HqIf8WjlPL7W4L3PdfLQ6n" 
+                alt="Maira Olliver Portrait" 
                 className="w-full h-[500px] object-cover rounded-2xl shadow-xl relative z-10"
               />
             </div>
@@ -39,9 +40,10 @@ const About: React.FC = () => {
           <div className="flex flex-col md:flex-row-reverse items-center gap-12">
             <div className="w-full md:w-1/2 relative group">
               <div className="absolute -bottom-4 -right-4 w-full h-full bg-secondary/10 rounded-2xl -z-10 group-hover:bg-secondary/20 transition-colors" />
+              {/* Client Image: Professional 2 (Working) */}
               <img 
-                src="https://images.unsplash.com/photo-1487412947132-23223f7d5727?q=80&w=800&auto=format&fit=crop" 
-                alt="Working" 
+                src="https://drive.google.com/uc?export=view&id=1zaN30GBZlezg2CaCbRO1fe-wvrx1AhgX" 
+                alt="Maira Olliver Working" 
                 className="w-full h-[500px] object-cover rounded-2xl shadow-xl"
               />
             </div>

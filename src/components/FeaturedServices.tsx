@@ -1,6 +1,6 @@
 import React from 'react';
-import { Service } from '../types';
-import { SERVICES } from '../constants';
+import { Service } from '../../types';
+import { SERVICES } from '../../constants';
 import { ArrowUpRight } from 'lucide-react';
 
 interface FeaturedServicesProps {
@@ -50,9 +50,10 @@ const FeaturedServices: React.FC<FeaturedServicesProps> = ({ openModal }) => {
           {/* Right Large Image */}
           <div className="lg:col-span-7 h-[500px] lg:h-auto relative rounded-3xl overflow-hidden shadow-2xl group">
              <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors z-10" />
+             {/* Client Image: Procedures Collage */}
              <img 
-              src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?q=80&w=2000&auto=format&fit=crop" 
-              alt="Procedure collage" 
+              src="https://drive.google.com/uc?export=view&id=1qM35WBbw_PzP8ux6duzKvyzg6t1s-Ayi" 
+              alt="Maira Olliver Prestations" 
               className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
              />
              <div className="absolute bottom-8 left-8 z-20 bg-white/90 backdrop-blur px-6 py-4 rounded-2xl max-w-xs">

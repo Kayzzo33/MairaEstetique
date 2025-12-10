@@ -6,6 +6,12 @@ const CustomCursor: React.FC = () => {
   const cursorOutlineRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    // Only activate on non-touch devices
+    if (window.matchMedia("(pointer: coarse)").matches) return;
+
+    // Hide default cursor
+    document.body.style.cursor = 'none';
+
     const cursorDot = cursorDotRef.current;
     const cursorOutline = cursorOutlineRef.current;
 
@@ -40,18 +46,37 @@ const CustomCursor: React.FC = () => {
 
     window.addEventListener('mousemove', moveCursor);
 
-    const interactiveElements = document.querySelectorAll('a, button, .interactive');
-    interactiveElements.forEach((el) => {
-      el.addEventListener('mouseenter', handleHover);
-      el.addEventListener('mouseleave', handleUnhover);
+    // Dynamic listener for interactive elements
+    const addListeners = () => {
+       const interactiveElements = document.querySelectorAll('a, button, .interactive');
+       interactiveElements.forEach((el) => {
+         el.addEventListener('mouseenter', handleHover);
+         el.addEventListener('mouseleave', handleUnhover);
+       });
+       return interactiveElements;
+    }
+
+    let interactiveElements = addListeners();
+
+    // Re-check for new elements occasionally (simple observer alternative)
+    const observer = new MutationObserver(() => {
+       interactiveElements.forEach((el) => {
+         el.removeEventListener('mouseenter', handleHover);
+         el.removeEventListener('mouseleave', handleUnhover);
+       });
+       interactiveElements = addListeners();
     });
+    
+    observer.observe(document.body, { childList: true, subtree: true });
 
     return () => {
+      document.body.style.cursor = 'auto';
       window.removeEventListener('mousemove', moveCursor);
       interactiveElements.forEach((el) => {
         el.removeEventListener('mouseenter', handleHover);
         el.removeEventListener('mouseleave', handleUnhover);
       });
+      observer.disconnect();
     };
   }, []);
 

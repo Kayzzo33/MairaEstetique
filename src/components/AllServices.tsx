@@ -1,8 +1,8 @@
 import React, { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { SERVICES } from '../constants';
-import { Service } from '../types';
+import { SERVICES } from '../../constants';
+import { Service } from '../../types';
 import { Plus } from 'lucide-react';
 
 interface AllServicesProps {

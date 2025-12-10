@@ -33,9 +33,6 @@
       }
     </script>
     <style>
-      body {
-        cursor: none; /* Hide default cursor for custom cursor */
-      }
       /* Custom Scrollbar */
       ::-webkit-scrollbar {
         width: 8px;
@@ -100,13 +97,17 @@
     "lucide-react": "https://esm.sh/lucide-react@^0.559.0",
     "react/": "https://esm.sh/react@^19.2.1/",
     "react": "https://esm.sh/react@^19.2.1",
+    "react-dom/client": "https://esm.sh/react-dom@^19.2.1/client",
+    "react-dom": "https://esm.sh/react-dom@^19.2.1",
     "gsap/": "https://esm.sh/gsap@^3.14.1/",
-    "gsap": "https://esm.sh/gsap@^3.14.1"
+    "gsap": "https://esm.sh/gsap@^3.14.1",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.1/"
   }
 }
 </script>
 </head>
   <body class="bg-pink-light/30 text-dark font-sans overflow-x-hidden selection:bg-secondary selection:text-white">
     <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
   </body>
 </html>

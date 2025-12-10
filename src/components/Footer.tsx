@@ -1,5 +1,5 @@
 import React from 'react';
-import { NAV_LINKS, WHATSAPP_NUMBER } from '../constants';
+import { NAV_LINKS, WHATSAPP_NUMBER } from '../../constants';
 import { Instagram, MapPin, Phone } from 'lucide-react';
 
 const Footer: React.FC = () => {

@@ -1,18 +1,18 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import FeaturedServices from './components/FeaturedServices';
-import AllServices from './components/AllServices';
-import Spaces from './components/Spaces';
-import VideoSection from './components/VideoSection';
-import About from './components/About';
-import Partners from './components/Partners';
-import CTASection from './components/CTASection';
-import Footer from './components/Footer';
-import CustomCursor from './components/CustomCursor';
-import ServiceModal from './components/ServiceModal';
+import Navbar from './src/components/Navbar';
+import Hero from './src/components/Hero';
+import FeaturedServices from './src/components/FeaturedServices';
+import AllServices from './src/components/AllServices';
+import Spaces from './src/components/Spaces';
+import VideoSection from './src/components/VideoSection';
+import About from './src/components/About';
+import Partners from './src/components/Partners';
+import CTASection from './src/components/CTASection';
+import Footer from './src/components/Footer';
+import CustomCursor from './src/components/CustomCursor';
+import ServiceModal from './src/components/ServiceModal';
 import { Service } from './types';
 
 // Register GSAP plugins

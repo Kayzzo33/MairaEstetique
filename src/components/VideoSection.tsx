@@ -1,5 +1,8 @@
 import React, { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const VideoSection: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -24,16 +27,17 @@ const VideoSection: React.FC = () => {
 
   return (
     <section ref={containerRef} className="relative h-[60vh] md:h-[80vh] w-full overflow-hidden bg-black flex items-center justify-center">
-      {/* Video Placeholder using generic beauty video link */}
+      {/* Client Video: Lash Video 1 - Rotated and Muted */}
       <video
         ref={videoRef}
         autoPlay
         muted
         loop
         playsInline
-        className="absolute inset-0 w-full h-full object-cover opacity-80"
+        className="absolute inset-0 w-full h-full object-cover opacity-80 transform rotate-90 scale-150 md:rotate-0 md:scale-100" 
       >
-        <source src="https://assets.mixkit.co/videos/preview/mixkit-woman-getting-her-eyelashes-done-at-a-salon-40406-large.mp4" type="video/mp4" />
+        {/* Using direct download link for streaming */}
+        <source src="https://drive.google.com/uc?export=download&id=1FnCfGf1sN2c0F48sC7P0-59O4bvhNcAV" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
 

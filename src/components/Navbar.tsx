@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
-import { NAV_LINKS, WHATSAPP_NUMBER } from '../constants';
+import { NAV_LINKS, WHATSAPP_NUMBER } from '../../constants';
 import { Menu, X, Instagram } from 'lucide-react';
 
 const Navbar: React.FC = () => {
