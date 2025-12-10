@@ -14,52 +14,51 @@ const Navbar: React.FC = () => {
     
     if (!navContent) return;
 
-    // Ensure initial state (Top)
+    // Estado Inicial (Topo):
+    // Já começa flutuante (pill), com efeito glass, mas LARGURA MAIOR (elementos mais espaçados)
     gsap.set(navContent, {
-        width: '100%',
-        maxWidth: '100%',
-        borderRadius: '0px',
-        backgroundColor: 'rgba(255, 255, 255, 0)',
-        backdropFilter: 'blur(0px)',
-        marginTop: '0rem',
-        paddingTop: '1.5rem',
-        paddingBottom: '1.5rem',
-        border: 'none',
-        boxShadow: 'none'
+        width: '95%', // Começa quase total, mas descolado
+        maxWidth: '1400px',
+        marginTop: '1.5rem',
+        borderRadius: '9999px',
+        backgroundColor: 'rgba(255, 255, 255, 0.7)', // Glass visível desde o início
+        backdropFilter: 'blur(10px)',
+        boxShadow: '0 4px 20px 0 rgba(31, 38, 135, 0.1)',
+        paddingTop: '1rem',
+        paddingBottom: '1rem',
+        border: '1px solid rgba(255, 255, 255, 0.5)',
     });
 
     const handleScroll = () => {
       const scrollY = window.scrollY;
       
       if (scrollY > 50) {
-        // Scrolled State: Floating Pill (Zoom Out / Compact)
+        // Estado Rolagem (Scroll Down):
+        // Fica MAIS COMPACTO (Zoom-in), juntando os elementos
         gsap.to(navContent, {
-          width: '85%',
-          maxWidth: '1200px', // Limit max width on large screens
-          marginTop: '1.5rem',
-          borderRadius: '9999px', // Full rounded
-          backgroundColor: 'rgba(255, 255, 255, 0.75)', // Glassy
-          backdropFilter: 'blur(12px)',
-          boxShadow: '0 8px 32px 0 rgba(31, 38, 135, 0.15)', // Glass shadow
+          width: '75%', // Diminui a largura para juntar os elementos
+          maxWidth: '1000px',
+          backgroundColor: 'rgba(255, 255, 255, 0.85)', // Mais opaco
+          backdropFilter: 'blur(16px)',
+          boxShadow: '0 8px 32px 0 rgba(31, 38, 135, 0.15)',
           paddingTop: '0.75rem',
           paddingBottom: '0.75rem',
-          border: '1px solid rgba(255, 255, 255, 0.18)',
+          border: '1px solid rgba(255, 255, 255, 0.3)',
           duration: 0.5,
           ease: 'power3.out',
         });
       } else {
-        // Top State: Wide, transparent (Zoom In / Spaced)
+        // Volta ao Estado Inicial (Topo):
+        // Mais largo, elementos mais separados
         gsap.to(navContent, {
-          width: '100%',
-          maxWidth: '100%',
-          marginTop: '0rem',
-          borderRadius: '0px',
-          backgroundColor: 'rgba(255, 255, 255, 0)',
-          backdropFilter: 'blur(0px)',
-          boxShadow: 'none',
-          paddingTop: '1.5rem',
-          paddingBottom: '1.5rem',
-          border: '1px solid rgba(255, 255, 255, 0)',
+          width: '95%',
+          maxWidth: '1400px',
+          backgroundColor: 'rgba(255, 255, 255, 0.7)',
+          backdropFilter: 'blur(10px)',
+          boxShadow: '0 4px 20px 0 rgba(31, 38, 135, 0.1)',
+          paddingTop: '1rem',
+          paddingBottom: '1rem',
+          border: '1px solid rgba(255, 255, 255, 0.5)',
           duration: 0.5,
           ease: 'power3.out',
         });
@@ -67,7 +66,6 @@ const Navbar: React.FC = () => {
     };
 
     window.addEventListener('scroll', handleScroll);
-    handleScroll(); // Trigger once on mount
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -83,7 +81,7 @@ const Navbar: React.FC = () => {
       >
         <div 
             ref={navContentRef} 
-            className="flex justify-between items-center px-8 md:px-12 pointer-events-auto transition-all bg-white/0"
+            className="flex justify-between items-center px-6 md:px-10 pointer-events-auto transition-all"
         >
             <div ref={logoRef} className="flex flex-col">
             <a href="#home" className="interactive text-xl md:text-2xl font-serif font-bold text-dark tracking-wide">
@@ -92,7 +90,7 @@ const Navbar: React.FC = () => {
             </div>
 
             {/* Desktop Menu */}
-            <div className="hidden md:flex items-center space-x-8">
+            <div className="hidden md:flex items-center space-x-6 lg:space-x-8">
             {NAV_LINKS.map((link) => (
                 <a
                 key={link.label}

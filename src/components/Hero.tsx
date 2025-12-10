@@ -120,14 +120,6 @@ const Hero: React.FC = () => {
           alt="Maira Olliver Hero" 
           className="w-full h-[120%] object-cover object-center"
         />
-        
-        {/* Floating Badge */}
-        <div className="absolute top-1/2 left-12 lg:left-0 transform -translate-y-1/2 -translate-x-1/2 z-20 bg-white/90 backdrop-blur-md p-6 rounded-full shadow-2xl hidden lg:block animate-pulse-slow">
-           <div className="text-center">
-             <span className="block text-3xl font-serif font-bold text-dark">5+</span>
-             <span className="text-xs uppercase tracking-wider text-gray-500">Années<br/>d'expérience</span>
-           </div>
-        </div>
       </div>
     </section>
   );
